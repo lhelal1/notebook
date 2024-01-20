@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage[american,siunitx]{circuitikz}
+
+\begin{document}
+
+% First Circuit
+\begin{circuitikz}
+\draw
+  (0,0) to[V, V<=15V, invert] (0,2) -- (1,2)
+  to[R, l=$R_x$] (3,2)
+  to[R, l=$R_y=5\Omega$] (3,0) -- (0,0)
+  (3,2) -- (5,2)
+  to[V, V<=2V] (5,0) -- (3,0);
+\end{circuitikz}
+
+% Second Circuit (Rx components)
+\begin{circuitikz}
+\draw
+  (0,0) to[R, l=$R_1=0.6\Omega$] (2,0)
+  to[R, l=$R_2=6\Omega$, *-*] (2,-2)
+  to[R, l=$R_3=4\Omega$] (0,-2) -- (0,0);
+\draw
+  (2,0) -- (4,0)
+  to[R, l=$R_x$] (4,-2) -- (2,-2);
+\end{circuitikz}
+
+\end{document}
